@@ -9,12 +9,12 @@ const NavBar = () => {
       <div className='nav-container'>
         <div className='nav-header'>
           <img src={logo} alt='logo' />
-          <button>
+          <button className='btn-toggle'>
             <FaBars />
           </button>
         </div>
         <div className='links-container'>
-          <ul>
+          <ul className='links'>
             {links &&
               links.map(({ id, url, text }) => {
                 return (

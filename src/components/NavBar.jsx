@@ -3,6 +3,8 @@ import logo from '../assets/react.svg'
 
 import { links, social } from '../data'
 import { useRef, useState } from 'react'
+import Links from './Links'
+import Social from './Socials'
 
 const NavBar = () => {
   const [showLinks, setShowLinks] = useState(false)
@@ -29,26 +31,13 @@ const NavBar = () => {
         <div className='links-container' style={linksStyle}>
           <ul className='links' ref={linksRef}>
             {links &&
-              links.map(({ id, url, text }) => {
-                return (
-                  <li key={id}>
-                    <a href={url}>{text}</a>
-                  </li>
-                )
+              links.map((link) => {
+                return <Links key={link.id} {...link} />
               })}
           </ul>
         </div>
         <div className='social-container'>
-          <ul>
-            {social &&
-              social.map(({ id, url, icon }) => {
-                return (
-                  <li key={id}>
-                    <a href={url}>{icon}</a>
-                  </li>
-                )
-              })}
-          </ul>
+          <ul>{social && <Social social={social} />}</ul>
         </div>
       </div>
     </nav>
